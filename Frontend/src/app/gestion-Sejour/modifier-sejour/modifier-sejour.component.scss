@@ -1,0 +1,101 @@
+/* Styles for the formulaire */
+.form-container {
+  width: 500px;
+  margin: 0 auto; /* Center the form horizontally */
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .mb-3 {
+    margin-bottom: 55px;
+  }
+
+  .form-group {
+    margin-bottom: 15px; /* Add margin between form groups */
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #e0e0e0;
+    }
+  }
+
+  .form-heading {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 24px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    i {
+      margin-right: 10px;
+      color: #bb4633;
+    }
+  }
+
+  .form-divider {
+    border: 2px solid #ccc;
+    margin-bottom: 20px;
+  }
+
+  /* Styles for les labels */
+  .form-label {
+    font-weight: bold;
+    i {
+      margin-right: 10px;
+      color: #bb4633;
+    }
+  }
+
+  /* Styles for les boutons */
+  button {
+    width: 100%;
+    border: none;
+    background-color: #093344;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin-top: 15px; /* Add margin between button and form groups */
+
+    i {
+      margin-right: 10px;
+    }
+
+    &:hover {
+      background-color: #ab807b;
+      color: #fff;
+      transform: scale(1.05);
+    }
+  }
+
+  /* Styles for les champs de saisie */
+  .form-control {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  /* Styles for les erreurs de validation (le cas échéant) */
+  .error-message {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+}

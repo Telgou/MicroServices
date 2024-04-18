@@ -1,0 +1,33 @@
+<form [formGroup]="addev" (ngSubmit)="onSubmit()" class="add-table-form">
+  <h2 class="form-heading">
+    <i class="fas fa-check-double"></i> Ajouter Evaluation
+  </h2>
+  <hr class="form-divider" />
+
+
+
+  <div class="form-group">
+    <label for="dateEvaluation" class="form-label">
+      <i class="far fa-calendar-alt"></i> Date Evaluation:
+    </label>
+    <input type="date" id="dateEvaluation" formControlName="dateEvaluation" class="form-control" />
+  </div>
+
+  <div class="form-group">
+    <label for="evaluateur" class="form-label">
+      <i class="fas fa-user-tie"></i> Evaluateur:
+    </label>
+    <input type="text" id="evaluateur" formControlName="evaluateur" class="form-control" />
+  </div>
+
+  <div class="form-group">
+    <label for="objectifEvaluation" class="form-label">
+      <i class="fas fa-bullseye"></i> Objectif Evaluation:
+    </label>
+    <input type="text" id="objectifEvaluation" formControlName="objectifEvaluation" class="form-control" />
+  </div>
+
+  <button type="submit" class="btn btn-primary" >
+    <i class="fas fa-check"></i> Ajouter Evaluation
+  </button>
+</form>

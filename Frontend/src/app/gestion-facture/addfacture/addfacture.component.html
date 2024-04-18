@@ -1,0 +1,35 @@
+<div class="facture-form-container">
+  <form (ngSubmit)="addFacture()" class="facture-form">
+    <h2 class="form-heading">
+      <i class="fas fa-money-bill-wave"></i> Payer
+    </h2>
+    <hr class="form-divider" />
+
+    <div class="form-group">
+      <label for="DateFacturation" class="form-label">
+        <i class="far fa-calendar-alt"></i> Date Facturation:
+      </label>
+      <input type="date" id="DateFacturation" [(ngModel)]="facture.dateFacturation" name="DateFacturation" required class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="CodeSecuriteCarte" class="form-label">
+        <i class="fas fa-lock"></i> Code Sécurité Carte:
+      </label>
+      <input type="text" id="CodeSecuriteCarte" [(ngModel)]="facture.codeSecuriteCarte" name="CodeSecuriteCarte" required class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="numeroCarteCredit" class="form-label">
+        <i class="fas fa-credit-card"></i> Numéro Carte Crédit:
+      </label>
+      <input type="text" id="numeroCarteCredit" [(ngModel)]="facture.numeroCarteCredit" name="numeroCarteCredit" required class="form-control">
+    </div>
+
+    <!-- Add other form fields as needed -->
+
+    <button type="submit" class="btn btn-success btn-sm action-button">
+      GET YOUR ORDER
+    </button>
+  </form>
+</div>

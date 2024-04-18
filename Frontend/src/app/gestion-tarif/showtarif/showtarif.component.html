@@ -1,0 +1,27 @@
+<!-- showtarif.component.html -->
+<div class="container mt-4">
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Type Tarif</th>
+          <th>Remise</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tarif of tarifList">
+          <td>{{ tarif.codepromo }}</td>
+          <td>{{tarif.remise}}</td>
+          <td>
+            <button class="btn btn-success btn-sm action-button" (click)="getPromoCode(tarif)">
+              Get Code Promo
+            </button>
+            
+          </td>
+
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

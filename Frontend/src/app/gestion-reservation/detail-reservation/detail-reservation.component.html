@@ -1,0 +1,29 @@
+<div class="container mt-4">
+  <div *ngIf="reservation" class="card">
+    <div class="card-body">
+      <h5 class="card-title text-center">Informations de la réservation</h5>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="card-text"><strong>ID de la Réservation:</strong> {{ reservation.idreservation }}</p>
+        </div>
+        <div class="col-md-6">
+          <p class="card-text"><strong>ID du Client:</strong> {{ reservation.idClient }}</p>
+          <p class="card-text"><strong>Durée:</strong> {{ reservation.duree }}</p>
+          <p class="card-text"><strong>Montant:</strong> {{ reservation.montant }}</p>
+          <p class="card-text"><strong>Statut:</strong> {{ reservation.statut }}</p>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="codePromo" class="form-label">Code Promo:</label>
+        <input type="text" id="codePromo" [(ngModel)]="codePromo" class="form-control">
+      </div>
+    
+      <button type="button" class="btn btn-primary" (click)="applyCodePromo()">Apply Code Promo</button>
+    </div>
+      <div class="text-center mt-3">
+        <!-- Any additional content you want to display -->
+      </div>
+    </div>
+  </div>
+

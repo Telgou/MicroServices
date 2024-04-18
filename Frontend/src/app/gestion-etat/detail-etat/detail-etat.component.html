@@ -1,0 +1,24 @@
+<div class="container mt-4">
+  <div *ngIf="etat" class="card">
+    <div class="card-body">
+      <h5 class="card-title text-center">Informations de l'état de la chambre</h5>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="card-text"><strong>ID de la Chambre:</strong> {{ etat.idEtat }}</p>
+        </div>
+        <div class="col-md-6">
+          <p class="card-text"><strong>Numéro de Chambre:</strong> {{ etat.etat }}</p>
+        </div>
+        <div class="col-md-6">
+          <p class="card-text"><strong>type chambre:</strong> {{ etat.dateNettoyage }}</p>
+        </div>
+        <div class="col-md-6">
+          <p class="card-text"><strong>Etage:</strong> {{ etat.personnel }}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+

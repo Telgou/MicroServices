@@ -1,0 +1,57 @@
+  <button class="btn btn-success btn-sm action-button" [routerLink]="['/gestion-reclamation/addrec']">
+    Ajouter reclamation
+  </button>
+
+  <button class="btn btn-success btn-sm action-button" [routerLink]="['/gestion-evaluation/allev']">
+    Evaluation
+  </button>
+  <button class="btn btn-success btn-sm action-button" [routerLink]="['/gestion-suggestion/allsug']">
+    suggestion
+  </button>
+  <div class="input-group mt-2">
+    <div class="input-group-prepend">
+      <span class="input-group-text">
+        <i class="material-icons">search</i>
+      </span>
+    </div>
+    <input [(ngModel)]="searchTerm" placeholder="Rechercher reclamation" class="form-control">
+  </div>
+
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>idReclamation</th>
+        <th>dateReclamation</th>
+        <th>statutReclamation</th>
+        <th>descreptionReclamation</th>
+        <th>idEmployee</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let rec of filteredreclamation">
+        <td>{{ rec.idReclamation }}</td>
+        <td>{{ rec.dateReclamation | date:'yyyy-MM-dd' }}</td>
+        <td>{{ rec.statutReclamation }}</td>
+        <td>{{ rec.descreptionReclamation }}</td>
+        <td>{{ rec.idEmployee }}</td>
+
+        <td>
+          <button class="btn btn-primary btn-sm action-button" [routerLink]="['/gestion-reclamation/addrec']">
+            <i class="fas fa-info-circle"></i> retourner
+          </button>
+          <button class="btn btn-warning btn-sm action-button" (click)="editre(rec.idReclamation)">
+            <i class="fas fa-edit"></i> Modifier
+          </button>
+          <button class="btn btn-danger btn-sm action-button" (click)="deletere(rec)">
+            <i class="fas fa-trash-alt"></i> Supprimer
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <p>Status de réclamation: {{ status }}</p>
+  </div>
+
+

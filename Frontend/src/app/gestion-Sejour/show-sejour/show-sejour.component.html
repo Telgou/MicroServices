@@ -1,0 +1,55 @@
+<div class="container mt-4"><button (click)="addsejour()" class="btn btn-danger btn-sm action-button">
+  Ajouter séjour
+</button>
+<button class="btn btn-danger btn-sm action-button" [routerLink]="['/gestion-chambre/show-chambre']">
+  chambre
+</button>
+<button class="btn btn-danger btn-sm action-button" [routerLink]="['/gestion-etat/show-etat']">
+  Etat chambre
+</button>
+
+<div class="input-group mt-2">
+  <div class="input-group-prepend">
+    <span class="input-group-text">
+      <i class="material-icons">search</i>
+    </span>
+  </div>
+  <input placeholder="Rechercher séjours" class="form-control">
+</div>
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Date d'Arrivée</th>
+      <th>Date de Départ</th>
+      <th>Coût</th>
+      <th>Numero chambre</th> <!-- La balise de fermeture était mal écrite -->
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let sejour of sejours">
+      <td>{{ sejour.idHistSejour }}</td>
+      <td>{{ sejour.dateArrivee | date }}</td>
+      <td>{{ sejour.dateDepart | date }}</td>
+
+      <td>{{ sejour.cout }}</td>
+    <td>  {{ sejour.numChambre }}</td>
+    <td>{{sejour.statutSejour}}</td>
+      <td>
+        <button class="btn btn-primary btn-sm action-button" (click)="showDetails(sejour.idHistSejour)">
+          <i class="fas fa-info-circle"></i> Détails
+        </button>
+        <button class="btn btn-warning btn-sm action-button" (click)="editSe(sejour.idHistSejour)">
+          <i class="fas fa-edit"></i> Modifier
+        </button>
+        <button class="btn btn-danger btn-sm action-button" (click)="deleteSe(sejour)">
+          <i class="fas fa-trash-alt"></i> Supprimer
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>

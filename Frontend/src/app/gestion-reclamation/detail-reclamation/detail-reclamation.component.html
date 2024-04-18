@@ -1,0 +1,33 @@
+<div class="container mt-4">
+  <div *ngIf="reclamation" class="card">
+    <div class="card-body">
+      <h5 class="card-title text-center">Informations de la reclamation</h5>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="card-text"><strong>ID de la reclamation:</strong> {{ reclamation.idReclamation }}</p>
+          <p class="card-text"><strong>date reclamation:</strong> {{ reclamation.dateReclamation | date:'yyyy-MM-dd' }}</p>
+        </div>
+        <div class="col-md-6">
+          <p class="card-text"><strong>statue de la reclamation:</strong> {{ reclamation.statutReclamation }}</p>
+          <p class="card-text"><strong>descreption reclamation:</strong> {{ reclamation.descreptionReclamation  }}</p>
+        </div>
+        <div class="col-md-6">
+          <p class="card-text"><strong>ID de lemployee:</strong> {{ reclamation.idEmployee }}</p>
+        </div>
+        
+
+      <div class="text-center mt-3">
+        <button class="btn btn-primary" (click)="reclamation()">Reclamer </button>
+      </div>
+
+      <div class="mt-4">
+        <label for="selectedrecalamations">Sélectionner une reclamation :</label>
+        <select id="selectedrecalamations"  class="form-control">
+          <option *ngFor="let re of reclamation" >{{ re?.dateReclamation }}</option>
+        </select>
+      </div>
+
+     
+    </div>
+  </div>
+</div>

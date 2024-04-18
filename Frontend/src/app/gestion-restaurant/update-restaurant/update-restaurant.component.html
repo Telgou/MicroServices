@@ -1,0 +1,19 @@
+<!-- update-restaurant.component.html -->
+<form (ngSubmit)="updateRestaurant()">
+  <div class="form-group">
+    <label for="nomR" class="form-label">Nom du restaurant:</label>
+    <input type="text" id="nomR" name="nomR" [(ngModel)]="restaurant.nomR" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="adresseR" class="form-label">Adresse:</label>
+    <input type="text" id="adresseR" name="adresseR" [(ngModel)]="restaurant.adresseR" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="nbPlacesR" class="form-label">Nombre de places:</label>
+    <input type="number" id="nbPlacesR" name="nbPlacesR" [(ngModel)]="restaurant.nbPlacesR" class="form-control">
+  </div>
+
+  <button type="submit">Sauvegarder</button>
+</form>

@@ -1,0 +1,44 @@
+<!-- add-employe.component.html -->
+<app-transparent-navbar></app-transparent-navbar>
+<div class="container">
+  <div class="form-container">
+    <form [formGroup]="addEmployeForm" (ngSubmit)="addEmploye()" class="add-table-form">
+      <h2 class="form-heading">
+        <i class="fas fa-user-plus"></i> Ajouter un employé
+      </h2>
+      <hr class="form-divider" />
+
+      <div class="form-group">
+        <label for="nomEmp" class="form-label">
+          <i class="fas fa-user"></i> Nom :
+        </label>
+        <input type="text" id="nomEmp" class="form-control" formControlName="nomEmp" required>
+      </div>
+
+      <div class="form-group">
+        <label for="prenomEmp" class="form-label">
+          <i class="fas fa-user"></i> Prénom :
+        </label>
+        <input type="text" id="prenomEmp" class="form-control" formControlName="prenomEmp" required>
+      </div>
+
+      <div class="form-group">
+        <label for="telEmp" class="form-label">
+          <i class="fas fa-phone"></i> Téléphone :
+        </label>
+        <input type="text" id="telEmp" class="form-control" formControlName="telEmp" required>
+      </div>
+
+      <div class="form-group">
+        <label for="posteEmp" class="form-label">
+          <i class="fas fa-briefcase"></i> Poste :
+        </label>
+        <input type="text" id="posteEmp" class="form-control" formControlName="posteEmp" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary">
+        <i class="fas fa-check"></i> Ajouter Employé
+      </button>
+    </form>
+  </div>
+</div>

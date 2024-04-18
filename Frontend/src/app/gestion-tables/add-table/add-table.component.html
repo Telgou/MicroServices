@@ -1,0 +1,66 @@
+<!-- add-table.component.html -->
+
+<div class="add-table-form-container">
+  <form (ngSubmit)="addTable()" class="add-table-form">
+    <h2 class="form-heading">
+      <i class="fas fa-chair"></i> Réserver table
+    </h2>
+    <hr class="form-divider" />
+
+    <!-- First Row: Cuisine à choisir and Numéro de Table -->
+    <div class="form-group">
+      <div class="form-row">
+        <div class="form-column">
+          <label for="cuisine" class="form-label">
+            <i class="fas fa-utensils"></i> Cuisine à choisir:
+          </label>
+          <select id="cuisine" name="cuisine" [(ngModel)]="table.cuisine" class="form-control">
+            <option value="FoodAndAll">FoodAndAll</option>
+            <option value="Gloovo">Gloovo</option>
+            <option value="PizzaOnly">PizzaOnly</option>
+            <option value="MrCozy">MrCozy</option>
+          </select>
+        </div>
+        <div class="form-column">
+          <label for="numTable" class="form-label">
+            <i class="fas fa-hashtag"></i> Numéro de Table:
+          </label>
+          <input type="number" id="numTable" name="numTable" [(ngModel)]="table.numTable" class="form-control" [max]="(table && table.cuisine && table.cuisine === 'Hafood') ? 25 : null">
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Row: État de la Table and Nombre de places -->
+    <div class="form-group">
+      <div class="form-row">
+        <div class="form-column">
+          <label for="etatT" class="form-label">
+            <i class="fas fa-info-circle"></i> État de la Table:
+          </label>
+          <select id="etatT" name="etatT" [(ngModel)]="table.etatT" class="form-control">
+            <option value="Réservée">Réservée</option>
+            <option value="Disponible">Disponible</option>
+          </select>
+        </div>
+        <div class="form-column">
+          <label for="nbplaceT" class="form-label">
+            <i class="fas fa-users"></i> Nombre de places:
+          </label>
+          <input type="number" id="nbplaceT" name="nbplaceT" [(ngModel)]="table.nbplaceT" class="form-control">
+        </div>
+      </div>
+    </div>
+
+    <!-- Third Row: Date de Réservation -->
+    <div class="form-group">
+      <label for="reservation" class="form-label">
+        <i class="far fa-calendar"></i> Date de Réservation:
+      </label>
+      <input type="date" id="reservation" name="reservation" [(ngModel)]="table.reservation" class="form-control">
+    </div>
+
+    <button type="submit">
+      <i class="fas fa-check"></i> Réserver table
+    </button>
+  </form>
+</div>

@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.image-container {
+    display: flex;
+    position: relative;
+    height: 100vh;
+}
+
+.image-wrapper {
+    position: relative;
+    flex: 1;
+}
+
+.hover-zoom {
+    width: 100%;
+    height: 600px;
+    margin-top: 110px;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Added opacity transition */
+}
+.welcome-text {
+    position: absolute;
+    top: 8%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+    width: 553px;
+    height: 121.84px;
+    flex-shrink: 0;
+    color: #093344;
+    font-family: Pacifico;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .divider-line {
+    width: 489.594px;
+    height: 2px;
+    background: #ab807b;
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+  h1 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 24px; /* Adjust the font size as needed */
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+  .divider-line-second {
+    width: 489.594px;
+    height: 2px;
+    background: #ab807b;
+    position: absolute;
+    top: 1%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+
+
+
+.image-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 40px;
+    font-weight: bolder;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.image-wrapper:hover .hover-zoom {
+    transform: scale(1.2);
+    opacity: 0.8; /* Adjusted opacity value when hovering */
+}
+
+.image-wrapper:hover .image-text {
+    opacity: 1;
+}
+
+/* Additional styling to separate the images */
+.image-wrapper:first-child {
+    margin-right: 10px;
+}
+
+.image-wrapper:last-child {
+    margin-left: 10px;
+}

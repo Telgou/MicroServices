@@ -1,0 +1,28 @@
+<!-- update-service.component.html -->
+<form (ngSubmit)="updateService()" class="update-form">
+    <h2 class="form-heading"><i class="fas fa-utensils"></i> Mettre à jour le service</h2>
+    <hr class="form-divider" />
+  
+    <div class="form-group">
+      <label for="menuS" class="form-label"><i class="fas fa-utensils"></i> Menu:</label>
+      <input type="text" id="menuS" name="menuS" [(ngModel)]="newService.menuS" class="form-control">
+    </div>
+  
+    <div class="form-group">
+      <label for="serveurS" class="form-label"><i class="fas fa-user"></i> Serveur:</label>
+      <input type="text" id="serveurS" name="serveurS" [(ngModel)]="newService.serveurS" class="form-control">
+    </div>
+  
+    <div class="form-group">
+      <label for="numCh" class="form-label"><i class="fas fa-hashtag"></i> Numéro de Chambre:</label>
+      <input type="number" id="numCh" name="numCh" [(ngModel)]="newService.numCh" class="form-control">
+    </div>
+  
+    <div class="form-group">
+      <label for="specialreq" class="form-label"><i class="fas fa-info-circle"></i> Requête spéciale:</label>
+      <input type="text" id="specialreq" name="specialreq" [(ngModel)]="newService.specialreq" class="form-control">
+    </div>
+  
+    <button type="submit" class="submit-button"><i class="fas fa-check"></i> Sauvegarder</button>
+  </form>
+  

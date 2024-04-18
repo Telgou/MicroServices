@@ -1,0 +1,37 @@
+<div class="container mt-4">
+  
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>ID Facture</th>
+        <th>ID Reservation</th>
+        <th>Montant</th>
+        <th>Date Facturation</th>
+        <th>Code Sécurité Carte</th>
+        <th>Numero Carte Credit</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let facture of factures">
+        <td>{{ facture.idFacture }}</td>
+        <td>{{ facture.idreservation }}</td>
+        <td>{{ facture.montant }}</td>
+        <td>{{ facture.dateFacturation | date:'medium' }}</td>
+        <td>{{ facture.codeSecuriteCarte }}</td>
+        <td>{{ facture.numeroCarteCredit }}</td>
+
+        
+
+        <td>
+          <button class="btn btn-warning btn-sm action-button" (click)="updateFacture(facture.idFacture)">
+            <i class="fas fa-edit"></i> Modifier
+          </button>
+          <button class="btn btn-danger btn-sm" (click)="deleteFacture(facture)">
+            <i class="fas fa-trash-alt"></i> Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

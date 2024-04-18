@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="carte_service" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ed82eb96-ca19-4308-b22f-5b9b6a64f468">
+    <property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="gestionres"/>
+    <parameter name="id_service" class="java.lang.Long"/>
+    <queryString language="SQL">
+        <![CDATA[SELECT menuS, serveurS, tempsatt
+FROM service_entity
+WHERE id_service = $P{id_service}]]>
+    </queryString>
+
+    <field name="menuS" class="java.lang.String"/>
+    <field name="serveurS" class="java.lang.String"/>
+    <field name="tempsatt" class="java.math.BigDecimal"/>
+
+    <background>
+        <band splitType="Stretch" />
+    </background>
+    <pageHeader>
+        <band height="60" splitType="Stretch">
+            <!-- Customize the page header based on your requirements -->
+            <rectangle>
+                <reportElement x="0" y="0" width="595" height="60" backcolor="#3465A4"/>
+            </rectangle>
+            <staticText>
+                <reportElement x="10" y="10" width="100" height="20" forecolor="#FFFFFF"/>
+                <text><![CDATA[Menu:]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="110" y="10" width="150" height="20" forecolor="#FFFFFF"/>
+                <textElement>
+                    <font size="10" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{menuS}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="10" y="30" width="100" height="20" forecolor="#FFFFFF"/>
+                <text><![CDATA[Serveur:]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="110" y="30" width="150" height="20" forecolor="#FFFFFF"/>
+                <textElement>
+                    <font size="10" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{serveurS}]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageHeader>
+    <columnHeader>
+        <band height="30" splitType="Stretch">
+            <rectangle>
+                <reportElement x="0" y="0" width="595" height="30" backcolor="#729FCF"/>
+            </rectangle>
+            <staticText>
+                <reportElement x="10" y="0" width="80" height="30" forecolor="#FFFFFF"/>
+                <text><![CDATA[Duration:]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="90" y="0" width="150" height="30" forecolor="#FFFFFF"/>
+                <textFieldExpression><![CDATA[$F{tempsatt} == null ? null :
+                ($F{tempsatt}.longValue() / 3600) + "h " +
+                (($F{tempsatt}.longValue() % 3600) / 60) + "m " +
+                ($F{tempsatt}.longValue() % 60) + "s"]]>
+                </textFieldExpression>
+            </textField>
+        </band>
+    </columnHeader>
+</jasperReport>

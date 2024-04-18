@@ -1,0 +1,51 @@
+<button class="btn btn-danger btn-sm action-button"  [routerLink]="['/gestion-evaluation/addev']">
+  Ajouter evaluation
+</button>
+<button class="btn btn-success btn-sm action-button" [routerLink]="['/gestion-reclamation/allrec']">
+  reclamation
+</button>
+
+<button class="btn btn-success btn-sm action-button" [routerLink]="['/gestion-suggestion/allsug']">
+  suggestion
+</button>
+<div class="input-group mt-2">
+  <div class="input-group-prepend">
+    <span class="input-group-text">
+      <i class="material-icons">search</i>
+    </span>
+  </div>
+  <input [(ngModel)]="searchTerm" placeholder="Rechercher evaluations" class="form-control">
+</div>
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>idEvaluation</th>
+      <th>dateEvaluation</th>
+     <th>evaluateur</th>
+     <th>objectifEvaluation</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ev of filteredevaluation">
+      <td>{{ ev.idEvaluation}}</td>
+      <td>{{ ev.dateEvaluation }}</td>
+      <td>{{ ev.evaluateur }}</td>
+      <td>{{ ev.objectifEvaluation }}</td>
+
+
+
+      <td>
+        <button class="btn btn-primary btn-sm action-button"  [routerLink]="['/gestion-evaluation/addev']">
+          <i class="fas fa-info-circle"></i> retourner
+        </button>
+        <button class="btn btn-warning btn-sm action-button" (click)="editev(ev.idEvaluation)">
+          <i class="fas fa-edit"></i> Modifier
+        </button>
+        <button class="btn btn-danger btn-sm action-button" (click)="deleteev(ev)">
+          <i class="fas fa-trash-alt"></i> Supprimer
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

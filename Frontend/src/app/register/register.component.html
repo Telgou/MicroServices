@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Page</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    .card-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    
+    .custom-card {
+      max-width: 500px;
+      width: 100%;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container card-container">
+    <div class="card custom-card">
+      <div class="card-body">
+        <h1 class="card-title">Registration</h1>
+        <form >
+          <div class="mb-3">
+            <label for="firstname" class="form-label">FirstName</label>
+            <input type="text" class="form-control" id="firstname">
+          </div>
+          <div class="mb-3">
+            <label for="lastname" class="form-label">LastName</label>
+            <input type="text" class="form-control" id="lastname" >
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" >          
+        </div>
+         
+          <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

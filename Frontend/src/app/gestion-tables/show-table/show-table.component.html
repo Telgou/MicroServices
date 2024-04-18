@@ -1,0 +1,42 @@
+<!-- show-table.component.html -->
+<div class="container mt-4">
+    <button class="btn btn-success btn-sm action-button" (click)="addTable()">
+      Ajouter table
+    </button>
+  
+    <table class="table table-striped table-bordered mt-2">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Numéro de Table</th>
+          <th>Nombre de Places</th>
+          <th>État de la Table</th>
+          <th>Cuisine</th>
+          <th>Réservation</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let table of tables">
+          <td>{{ table.idTable }}</td>
+          <td>{{ table.numTable }}</td>
+          <td>{{ table.nbplaceT }}</td>
+          <td>{{ table.etatT }}</td>
+          <td>{{ table.cuisine }}</td>
+          <td>{{ table.reservation | date }}</td>
+          <td>
+            <button class="btn btn-primary btn-sm action-button" (click)="showDetails(table.idTable)">
+              <i class="fas fa-info-circle"></i> Détails
+            </button>
+            <button class="btn btn-warning btn-sm action-button" (click)="editTable(table.idTable)">
+              <i class="fas fa-edit"></i> Modifier
+            </button>
+            <button class="btn btn-danger btn-sm action-button" (click)="deleteTable(table)">
+              <i class="fas fa-trash-alt"></i> Supprimer
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

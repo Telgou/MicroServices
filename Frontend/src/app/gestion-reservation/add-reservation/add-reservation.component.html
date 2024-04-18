@@ -1,0 +1,38 @@
+<form [formGroup]="addRes" (ngSubmit)="onSubmit()" class="form-container">
+  <h2 class="form-heading">
+    <i class="fas fa-file-invoice"></i> Reserver
+  </h2>
+  <hr class="form-divider" />
+
+  <div class="mb-3">
+    <label for="id" class="form-label">
+      <i class="fas fa-id-card"></i> ID de la réservation:
+    </label>
+    <input type="text" id="id" formControlName="idreservation" class="form-control">
+  </div>
+
+  <div class="mb-3">
+    <label for="duree" class="form-label">
+      <i class="far fa-clock"></i> Durée:
+    </label>
+    <input type="text" id="duree" formControlName="duree" class="form-control">
+  </div>
+
+  <div class="mb-3">
+    <label for="idClient" class="form-label">
+      <i class="fas fa-user"></i> Client:
+    </label>
+    <input type="text" id="idClient" formControlName="idClient" class="form-control">
+  </div>
+  
+  <div class="mb-3">
+    <label for="montant" class="form-label">
+      <i class="fas fa-dollar-sign"></i> Montant:
+    </label>
+    <input type="text" id="montant" formControlName="montant" class="form-control">
+  </div>
+
+  <button type="submit" class="btn btn-primary">
+    <i class="fas fa-plus"></i> Ajouter la réservation
+  </button>
+</form>

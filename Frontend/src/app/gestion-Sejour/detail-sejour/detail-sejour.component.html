@@ -1,0 +1,31 @@
+<div class="container mt-4">
+  <div *ngIf="sejour" class="card">
+    <div class="card-body">
+      <h5 class="card-title text-center">Informations de Sejour</h5>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="card-text"><strong>ID de l'historique du séjour :</strong> {{ sejour.idHistSejour }}</p>
+        </div>
+        <div class="col-md-6">
+          <p class="card-text"><strong>Date d'arrivée :</strong> {{ sejour.dateArrivee }}</p>
+        </div>
+        <div class="col-md-6">
+          <p class="card-text"><strong>Date de départ :</strong> {{ sejour.dateDepart }}</p>
+        </div>
+        <div class="col-md-6">
+          <p class="card-text"><strong>Statut :</strong> {{ sejour.statutSejour }}</p>
+        </div>
+        <div class="col-md-6">
+          <p class="card-text"><strong>Cout :</strong> {{ sejour.cout }}</p>
+        </div>
+      </div>
+
+      <!-- Modifier le fichier modifier-sejour.component.html -->
+      <div>
+        <img [src]="qrCodeImage$ | async" alt="Code QR">
+      </div>
+    </div>
+  </div>
+  <button (click)="goback()" class="btn btn-danger btn-sm action-button">Retour</button>
+
+</div>

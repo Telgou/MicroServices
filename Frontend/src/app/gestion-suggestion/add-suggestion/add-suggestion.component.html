@@ -1,0 +1,39 @@
+<form [formGroup]="addsug" (ngSubmit)="onSubmit()" class="add-table-form">
+  <h2 class="form-heading">
+    <i class="fas fa-save"></i> Ajouter Suggestion
+  </h2>
+  <hr class="form-divider" />
+
+
+  <div class="form-group">
+    <label for="dateInput" class="form-label">
+      <i class="far fa-calendar-alt"></i> Date de Suggestion:
+    </label>
+    <input type="date" id="dateInput" formControlName="dateSuggestion" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="descriptionSuggestion" class="form-label">
+      <i class="fas fa-comment"></i> Description de la Suggestion:
+    </label>
+    <input type="text" id="descriptionSuggestion" formControlName="descriptionSuggestion" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="statusSuggestion" class="form-label">
+      <i class="fas fa-info"></i> Statut de la Suggestion:
+    </label>
+    <input type="text" id="statusSuggestion" formControlName="statusSuggestion" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="responsable" class="form-label">
+      <i class="fas fa-user"></i> Responsable:
+    </label>
+    <input type="text" id="responsable" formControlName="responsable" rows="4" class="form-control">
+  </div>
+
+  <button type="submit" class="btn btn-primary">
+    <i class="fas fa-save"></i> Sauvegarder
+  </button>
+</form>

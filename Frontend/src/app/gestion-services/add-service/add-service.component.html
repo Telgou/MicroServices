@@ -1,0 +1,50 @@
+<app-transparent-navbar></app-transparent-navbar>
+
+<div class="add-table-form-container">
+    <form (ngSubmit)="addService()" class="add-table-form">
+      <h2 class="form-heading">
+        <i class="fas fa-utensils"></i> Commander
+      </h2>
+      <hr class="form-divider" />
+
+      <!-- First Row: Menu and Serveur -->
+      <div class="form-group">
+        <div class="form-row">
+          <div class="form-column">
+            <label for="menuS" class="form-label">
+              <i class="fas fa-utensils"></i> Menu:
+            </label>
+            <input type="text" id="menuS" name="menuS" [(ngModel)]="service.menuS" class="form-control">
+          </div>
+          <div class="form-column">
+            <label for="serveurS" class="form-label">
+              <i class="fas fa-user"></i> Serveur:
+            </label>
+            <input type="text" id="serveurS" name="serveurS" [(ngModel)]="service.serveurS" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <!-- Second Row: NumCh and Special Requests -->
+      <div class="form-group">
+        <div class="form-row">
+          <div class="form-column">
+            <label for="numCh" class="form-label">
+              <i class="fas fa-utensils"></i> Room Number:
+            </label>
+            <input type="number" id="numCh" name="numCh" [(ngModel)]="service.numCh" class="form-control">
+          </div>
+          <div class="form-column">
+            <label for="specialreq" class="form-label">
+              <i class="fas fa-info"></i> Special Requests:
+            </label>
+            <input type="text" id="specialreq" name="specialreq" [(ngModel)]="service.specialreq" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <button  type="submit">
+        <i class="fas fa-check"></i> Confirmer Commande
+      </button>
+    </form>
+  </div>

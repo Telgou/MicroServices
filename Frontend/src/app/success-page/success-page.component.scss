@@ -1,0 +1,79 @@
+/* success-page.component.scss */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+.success-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #009688; /* Background color for the success page */
+  color: #fff; /* Text color for the success page */
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #093344;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #ab807b;
+      transform: scale(1.05);
+    }
+  }
+  .loading-dots {
+    display: inline-block;
+    animation: loading-animation 1s infinite; /* Customize the animation duration as needed */
+  }
+  
+  .loading-dots {
+    display: inline-block;
+    animation: loading-animation 1s infinite linear;
+  }
+  
+  .loading-dots {
+    display: inline-block;
+    overflow: hidden;
+    width: 1em;
+    animation: loading-animation 1.5s infinite steps(3);
+  }
+  
+  .loading-dots {
+    display: inline-block;
+    font-size: 2em; /* Adjust the font size for larger dots */
+    animation: loading-animation 1.5s infinite;
+  }
+  
+  .dot1 { color: #ff0000; } /* Red dot */
+  .dot2 { color: #00ff00; } /* Green dot */
+  .dot3 { color: #0000ff; } /* Blue dot */
+  
+  @keyframes loading-animation {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(-0.5em);
+    }
+    50% {
+      transform: translateY(-1em);
+    }
+    75% {
+      transform: translateY(-0.5em);
+    }
+  }
+    }

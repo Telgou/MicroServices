@@ -1,0 +1,42 @@
+# Config Server properties
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Telgou/microservices-config-repo
+          username: Telgou
+          password: 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
+          skipSslValidation: true
+          clone-on-start: true
+          default-label: main
+  application:
+    name: ConfigServer
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: "*"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+# Eureka client properties
+# eureka:
+#   client:
+#     service-url:
+#       defaultZone: http://localhost:8761/eureka/
+server:
+  port: 8888
+
+logging:
+  level:
+    web=DEBUG:
+
+# eureka registration
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+      register-with-eureka: true

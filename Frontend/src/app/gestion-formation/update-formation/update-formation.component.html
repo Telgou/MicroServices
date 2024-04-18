@@ -1,0 +1,24 @@
+<!-- update-formation.component.html -->
+<div class="container mt-3">
+  <h2>Modifier la Formation</h2>
+
+  <form [formGroup]="updateFormationForm" (ngSubmit)="updateFormation()">
+    <div class="form-group">
+      <label for="titre">Titre</label>
+      <input type="text" class="form-control" id="titre" formControlName="titre" required>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control" id="description" formControlName="description" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="formateur">Formateur</label>
+      <input type="text" class="form-control" id="formateur" formControlName="formateur" required>
+    </div>
+    <div class="form-group">
+      <label for="participant">Participant</label>
+      <input type="text" class="form-control" id="participant" formControlName="participant" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+  </form>
+</div>

@@ -1,0 +1,55 @@
+ <button class="btn btn-success btn-sm action-button" [routerLink]="['/gestion-suggestion/addsug']">
+    Ajouter suggestion
+  </button>
+
+  <button class="btn btn-success btn-sm action-button" [routerLink]="['/gestion-reclamation/allrec']">
+     reclamation
+  </button>
+
+  <button class="btn btn-success btn-sm action-button" [routerLink]="['/gestion-evaluation/allev']">
+    Evaluation
+  </button>
+
+  <div class="input-group mt-2">
+    <div class="input-group-prepend">
+      <span class="input-group-text">
+        <i class="material-icons">search</i>
+      </span>
+    </div>
+    <input [(ngModel)]="searchTerm" placeholder="Rechercher suggestions" class="form-control">
+  </div>
+
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>idSuggestion</th>
+        <th>dateSuggestion </th>
+        <th>descriptionSuggestion</th>
+        <th>statusSuggestion</th>
+        <th>Responsable</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let sug of filteredsuggestion">
+        <td>{{ sug.idSuggestion }}</td>
+        <td>{{ sug.dateSuggestion | date:'yyyy-MM-dd' }}</td>
+        <td> {{ sug.descriptionSuggestion }} </td>
+        <td>{{ sug.statusSuggestion }}</td>
+        <td>{{ sug.responsable}}</td>
+        <td>
+          <button class="btn btn-primary btn-sm action-button" [routerLink]="['/gestion-suggestion/addsug']">
+            <i class="fas fa-info-circle"></i> retourner
+          </button>
+          <button class="btn btn-warning btn-sm action-button" (click)="editsu(sug.idSuggestion)">
+            <i class="fas fa-edit"></i> Modifier
+          </button>
+          <button class="btn btn-danger btn-sm action-button" (click)="deletesu(sug)">
+            <i class="fas fa-trash-alt"></i> Supprimer
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+

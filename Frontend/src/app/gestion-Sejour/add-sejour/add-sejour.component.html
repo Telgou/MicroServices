@@ -1,0 +1,38 @@
+<!-- add-sejour.component.html -->
+<div class="container mt-4">
+  <form [formGroup]="addSt" (ngSubmit)="onSubmit()" class="form-container">
+    <h2 class="form-heading"><i class="fas fa-calendar-plus"></i> Ajouter Séjour</h2>
+    <hr class="form-divider" />
+
+    <div class="form-group">
+      <label for="dateArrivee" class="form-label"><i class="fas fa-calendar-day"></i> Date d'Arrivée:</label>
+      <input type="date" id="dateArrivee" formControlName="dateArrivee" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="dateDepart" class="form-label"><i class="fas fa-calendar-times"></i> Date de Départ:</label>
+      <input type="date" id="dateDepart" formControlName="dateDepart" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="cout" class="form-label"><i class="fas fa-dollar-sign"></i> Coût:</label>
+      <input type="number" id="cout" formControlName="cout" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="statutSejour" class="form-label"><i class="fas fa-info-circle"></i> Statut:</label>
+      <select id="statutSejour" formControlName="statutSejour" class="form-control">
+        <option *ngFor="let status of statusOptions" [value]="status">{{ status }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="chambre" class="form-label"><i class="fas fa-bed"></i> Chambre:</label>
+      <select id="chambre" formControlName="chambre" class="form-control">
+        <option *ngFor="let chambre of chambres" [ngValue]="chambre">{{ chambre.numChambre }}</option>
+      </select>
+    </div>
+
+    <button type="submit" class="submit-button"><i class="fas fa-plus"></i> Ajouter Séjour</button>
+  </form>
+</div>

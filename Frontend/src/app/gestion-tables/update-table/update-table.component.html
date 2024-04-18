@@ -1,0 +1,38 @@
+<!-- update-table.component.html -->
+<form (ngSubmit)="updateTable()" class="update-form">
+    <h2 class="form-heading"><i class="fas fa-calendar-alt"></i> Mettre à jour la réservation</h2>
+    <hr class="form-divider" />
+
+    <div class="form-group">
+      <label for="numTable" class="form-label"><i class="fas fa-hashtag"></i> Numéro de Table:</label>
+      <input type="number" id="numTable" name="numTable" [(ngModel)]="table.numTable" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="nbplaceT" class="form-label"><i class="fas fa-users"></i> Nombre de places:</label>
+      <input type="number" id="nbplaceT" name="nbplaceT" [(ngModel)]="table.nbplaceT" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="etatT" class="form-label"><i class="fas fa-info-circle"></i> État de la Table:</label>
+      <select id="etatT" name="etatT" [(ngModel)]="table.etatT" class="form-control">
+        <option value="Réservée">Réservée</option>
+        <option value="Disponible">Disponible</option>
+      </select>
+    </div>
+
+    <!-- Include the missing fields -->
+    <div class="form-group">
+      <hr class="thin-divider" />
+      <label for="cuisine" class="form-label"><i class="fas fa-utensils"></i> Cuisine:</label>
+      <input type="text" id="cuisine" name="cuisine" [(ngModel)]="table.cuisine" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="reservation" class="form-label"><i class="fas fa-calendar-alt"></i> Date de réservation:</label>
+      <input type="date" id="reservation" name="reservation" [(ngModel)]="table.reservation" class="form-control">
+    </div>
+
+    <!-- Include the missing fields -->
+    <button type="submit" class="submit-button"><i class="fas fa-check"></i> Sauvegarder</button>
+  </form>

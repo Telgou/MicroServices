@@ -1,0 +1,42 @@
+<!-- Modifier Séjour Page with CSS Styles -->
+<div class="container mt-4 custom-canvas">
+  <!-- Formulaire de mise à jour avec styles CSS -->
+  <form [formGroup]="updatedSejour" (ngSubmit)="update()" class="form-container">
+    <!-- Champs de mise à jour -->
+    <h2 class="form-heading"><i class="fas fa-edit"></i> Modifier Séjour</h2>
+    <hr class="form-divider" />
+
+    <div class="form-group">
+      <label for="dateArrivee" class="form-label"><i class="fas fa-calendar-alt"></i> Nouvelle Date de Début:</label>
+      <input type="date" id="dateArrivee" name="dateArrivee" formControlName="dateArrivee" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="dateDepart" class="form-label"><i class="fas fa-calendar-alt"></i> Nouvelle Date de Fin:</label>
+      <input type="date" id="dateDepart" name="dateDepart" formControlName="dateDepart" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="statutSejour" class="form-label"><i class="fas fa-info-circle"></i> Nouveau Statut:</label>
+      <select id="statutSejour" name="statutSejour" formControlName="statutSejour" class="form-control">
+        <option *ngFor="let statusOption of statusEnum" [value]="statusOption">{{ statusOption }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="cout" class="form-label"><i class="fas fa-dollar-sign"></i> Cout:</label>
+      <input type="number" id="cout" name="cout" formControlName="cout" class="form-control">
+    </div>
+
+    <!-- Utilisez ngFor pour générer les options de sélection de chambre -->
+    <div class="form-group">
+      <label for="chambre" class="form-label"><i class="fas fa-bed"></i> Chambre:</label>
+      <select id="chambre" name="chambre" formControlName="chambre" class="form-control">
+        <option *ngFor="let chambre of chambres" [value]="chambre.numChambre">{{ chambre.numChambre }}</option>
+      </select>
+    </div>
+
+    <!-- Bouton de soumission du formulaire -->
+    <button type="submit" class="submit-button"><i class="fas fa-check"></i> Mettre à jour</button>
+  </form>
+</div>

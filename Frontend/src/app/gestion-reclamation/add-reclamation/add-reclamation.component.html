@@ -1,0 +1,51 @@
+<app-transparent-navbar></app-transparent-navbar>
+<div class="form-container">
+  <div class="add-table-form-container">
+    <form [formGroup]="addrec" (ngSubmit)="onSubmit()" class="add-table-form">
+      <h2 class="form-heading">
+        <i class="fas fa-info"></i> Ajouter Réclamation
+      </h2>
+      <hr class="form-divider" />
+
+      <!-- First Row: DateReclamation and StatutReclamation -->
+      <div class="form-group">
+        <div class="form-row">
+          <div class="form-column">
+            <label for="dateReclamation" class="form-label">
+              <i class="far fa-calendar-alt"></i> Date Réclamation:
+            </label>
+            <input type="date" id="dateReclamation" formControlName="dateReclamation" class="form-control">
+          </div>
+          <div class="form-column">
+            <label for="statutReclamation" class="form-label">
+              <i class="far fa-check-circle"></i> Statut Réclamation:
+            </label>
+            <input type="text" id="statutReclamation" formControlName="statutReclamation" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <!-- Second Row: DescreptionReclamation and IdEmployee -->
+      <div class="form-group">
+        <div class="form-row">
+          <div class="form-column">
+            <label for="descreptionReclamation" class="form-label">
+              <i class="fas fa-info"></i> Description Réclamation:
+            </label>
+            <input type="text" id="descreptionReclamation" formControlName="descreptionReclamation" class="form-control">
+          </div>
+          <div class="form-column">
+            <label for="idEmployee" class="form-label">
+              <i class="fas fa-id-badge"></i> ID Employé:
+            </label>
+            <input type="text" id="idEmployee" formControlName="idEmployee" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">
+        <i class="fas fa-check"></i> Ajouter la Réclamation
+      </button>
+    </form>
+  </div>
+</div>

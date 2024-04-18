@@ -1,0 +1,55 @@
+<div class="container mt-4">
+<button class="btn btn-danger btn-sm action-button" (click)="addChambre()">
+  Ajouter chambre
+</button>
+<button class="btn btn-danger btn-sm action-button" [routerLink]="['/gestion-etat/show-etat']">
+  Etat chambre
+</button>
+<button class="btn btn-danger btn-sm action-button" [routerLink]="['/gestion-sejour/show-sejour']">
+  Historique chambre
+</button>
+<div class="input-group mt-2">
+  <div class="input-group-prepend">
+    <span class="input-group-text">
+      <i class="material-icons">search</i>
+    </span>
+  </div>
+  <input [(ngModel)]="searchTerm" placeholder="Rechercher réservations" class="form-control">
+</div>
+
+<!-- Ajoutez cette balise canvas pour afficher la statistique -->
+
+<table id="tableaffichage" class="table table-striped table-bordered center_focus_strong mx-auto panorama_wide_angle">
+  <thead>
+    <tr>
+      <th>Numéro de Chambre</th>
+      <th>Type de Chambre</th>
+      <th>Étage</th>
+      <th>Tarif</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ch of filteredChambres">
+      <td>{{ ch.numChambre }}</td>
+      <td>{{ ch.typeC }}</td> <!-- Utilisez typeChambre.typeC -->
+      <td>{{ ch.etage }}</td>
+      <td>{{ ch.tarif }}</td>
+      <td>
+        <button class="btn btn-primary btn-sm action-button" (click)="showDetails(ch.idChambre)">
+          <i class="fas fa-info-circle"></i> Détails
+        </button>
+        <button class="btn btn-warning btn-sm action-button" (click)="editCh(ch.idChambre)">
+          <i class="fas fa-edit"></i> Modifier
+        </button>
+        <button class="btn btn-danger btn-sm action-button" (click)="deleteCh(ch)">
+          <i class="fas fa-trash-alt"></i> Supprimer
+        </button>
+      </td>
+    </tr>
+
+  </tbody>
+
+</table>
+<canvas id="myChart1" class="custom-canvas" width="70" height="70"></canvas>
+</div>

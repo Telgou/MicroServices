@@ -1,0 +1,23 @@
+<div class="container mt-4">
+  <form [formGroup]="addEt" (ngSubmit)="onSubmit()" class="form-container">
+    <h2 class="form-heading"><i class="fas fa-check"></i> Ajouter État</h2>
+    <hr class="form-divider" />
+
+    <div class="form-group">
+      <label for="etat" class="form-label"><i class="fas fa-info-circle"></i> État:</label>
+      <input type="text" id="etat" formControlName="etat" class="form-control"/>
+    </div>
+
+    <div class="form-group">
+      <label for="dateNettoyage" class="form-label"><i class="fas fa-calendar-alt"></i> Date de Nettoyage:</label>
+      <input type="date" id="dateNettoyage" formControlName="dateNettoyage" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="personnel" class="form-label"><i class="fas fa-user"></i> Personnel:</label>
+      <input type="text" id="personnel" formControlName="personnel" class="form-control"/>
+    </div>
+
+    <button type="submit" class="submit-button"><i class="fas fa-plus"></i> Ajouter État</button>
+  </form>
+</div>

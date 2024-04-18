@@ -1,0 +1,80 @@
+.sidebar {
+  position: absolute;
+  top: 55%;
+  transform: translateY(-50%);
+  left: 60px; /* Adjust the left value to move it to the right */
+  width: 400px;
+  height: 90vh;
+  background-color: #e3d5ca; /* Sidebar background color */
+  color: #8D19AA; /* Text color */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the left */
+  padding: 20px; /* Add padding for spacing */
+  border-radius: 25px; /* Add border radius */
+
+  .dashboard-items {
+    width: 100%;
+  }
+  
+
+  .dashboard-items ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .dashboard-items li {
+    display: flex;
+    flex-direction: column; /* Stack icon and text vertically */
+    align-items: flex-start; /* Align items to the left */
+    margin-bottom: 30px; /* Increase margin for spacing */
+    padding: 20px; /* Increase padding for larger items */
+    border-radius: 5px;
+    transition: all 0.3s; /* Smooth transition for hover effects */
+    font-size: 1.5em; /* Initial font size */
+    border-bottom: 2px solid #9c89b8; /* Add bottom border */
+  }
+
+  .dashboard-items ul ul {
+    display: none;
+    margin-left: 10px;
+  }
+
+  .dashboard-items li:hover > ul {
+    display: block;
+  }
+
+  .dashboard-items a {
+    text-decoration: none;
+    color: #b5179e;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s; /* Smooth transition for hover effects */
+    font-size: 0.5em; /* Initial font size for subitems */
+  }
+
+  .dashboard-items i {
+    margin-bottom: 10px; /* Adjust margin between icon and text */
+    margin-right: 10px; /* Adjust margin to the right of the icon */
+  }
+
+  .dashboard-items .subitem a {
+    font-size: 0.5em; /* Adjust the font size for "ajouter" and "liste" items */
+  }
+
+  .dashboard-items li:hover {
+    background-color: #ede0d4; /* Hover background color */
+    border-radius: 50px; /* Add border radius */
+  }
+
+  .dashboard-items a:hover {
+    color: #2ec4b6;
+    font-size: 0.6em; /* Increase font size on hover */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add text shadow on hover */
+  }
+}
+
+.main-content {
+  margin-left: 480px; /* Adjust based on the width of the sidebar */
+  padding: 20px;
+}

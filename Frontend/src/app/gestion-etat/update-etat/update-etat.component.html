@@ -1,0 +1,27 @@
+<!-- Modifier État Page with CSS Styles -->
+<div class="container mt-4 custom-canvas">
+  <!-- Formulaire de mise à jour avec styles CSS -->
+  <form [formGroup]="updateEtatForm" (ngSubmit)="update()" class="form-container">
+    <!-- Champs de mise à jour -->
+    <h2 class="form-heading"><i class="fas fa-edit"></i> Modifier l'État</h2>
+    <hr class="form-divider" />
+
+    <div class="form-group">
+      <label for="etat" class="form-label"><i class="fas fa-info-circle"></i> Nouvel État:</label>
+      <input type="text" id="etat" name="etat" formControlName="etat" class="form-control" placeholder="Saisissez le nouvel état">
+    </div>
+
+    <div class="form-group">
+      <label for="dateNettoyage" class="form-label"><i class="fas fa-calendar-alt"></i> Nouvelle Date de Nettoyage:</label>
+      <input type="date" id="dateNettoyage" name="dateNettoyage" formControlName="dateNettoyage" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="personnel" class="form-label"><i class="fas fa-user"></i> Nouveau Personnel:</label>
+      <input type="text" id="personnel" name="personnel" formControlName="personnel" class="form-control" placeholder="Saisissez le nouveau personnel">
+    </div>
+
+    <!-- Bouton de soumission du formulaire -->
+    <button type="submit" class="submit-button"><i class="fas fa-check"></i> Mettre à jour</button>
+  </form>
+</div>

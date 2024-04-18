@@ -1,0 +1,24 @@
+<!-- update-reservation.component.html -->
+<form (ngSubmit)="updateReservation()" class="update-form">
+  <h2 class="form-heading"><i class="fas fa-calendar-alt"></i> Mettre à jour la réservation</h2>
+  <hr class="form-divider" />
+
+  <div class="form-group">
+    <label for="Duree" class="form-label"><i class="far fa-clock"></i> Durée:</label>
+    <textarea id="Duree" name="Duree" [(ngModel)]="reservation.duree" rows="4" class="form-control"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="Client" class="form-label"><i class="fas fa-user"></i> Client:</label>
+    <textarea id="Client" name="Client" [(ngModel)]="reservation.idClient" rows="4" class="form-control"></textarea>
+  </div>
+
+  <div class="mb-3">
+    <label for="montant" class="form-label"><i class="fas fa-dollar-sign"></i> Montant:</label>
+    <textarea id="montant" name="montant" [(ngModel)]="reservation.montant" rows="4" class="form-control"></textarea>
+  </div>
+
+  <!-- No extra fields, structure matches update-table.component.html -->
+
+  <button type="submit" class="submit-button"><i class="fas fa-check"></i> Sauvegarder</button>
+</form>

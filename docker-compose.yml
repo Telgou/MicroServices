@@ -1,0 +1,257 @@
+version: "3.9"
+services:
+  frontend:
+    image: "frontend"
+    build:
+      context: ./frontend
+    container_name: "frontend"
+    ports:
+      - 4200:4200
+    expose:
+      - 4200
+    #  working_dir: /app
+    #command: "npm install && npm install -g @angular/cli@8.1.2 && ng serve --open --host 0.0.0.0 --port 4200 --disable-host-check"
+    command: "ng serve --host 0.0.0.0 --port 4200"
+    volumes:
+      #  - ./frontend:/src/app
+      - /node_modules
+      - ./frontend/src:/app/src
+    links:
+      - "apigateway"
+    networks:
+      - hotel
+
+
+  evaluation:
+    container_name: evaluation
+    image: "evaluationms"
+    build: .\MicroService_back-AzizAzizi
+    hostname: evaluation
+    ports:
+      - "8088:8088"
+    environment:
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULT_ZONE=http://eureka:8761/eureka/
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka:8761/eureka/
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db-mysql:3306/evaluation?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+      - EUREKA_CLIENT_REGISTER_WITH_EUREKA=true
+      - EUREKA_INSTANCE_HOSTNAME=evaluation
+    links:
+      - "eureka"
+      - "configserver"
+    networks:
+      - hotel
+    depends_on:
+      - "eureka"
+      - "db-mysql"
+      - "configserver"
+      - "apigateway"
+
+  restaurant:
+    container_name: restaurant
+    image: "restaurantms"
+    build: .\MicroService_back-RayenJouida/GestionRestaurant
+    ports:
+      - "8089:8089"
+    environment:
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULT_ZONE=http://eureka:8761/eureka/
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka:8761/eureka/
+      - SPRING_DATASOURCE_URL=jdbc:h2:file:./data/gestionres
+      - SPRING_DATASOURCE_USERNAME=micro
+      - SPRING_DATASOURCE_PASSWORD=
+      - EUREKA_CLIENT_REGISTER_WITH_EUREKA=true
+      - EUREKA_INSTANCE_HOSTNAME=restaurant
+    links:
+      - "eureka"
+    networks:
+      - hotel
+    depends_on:
+      - "eureka"
+      - "db-mysql"
+      - "configserver"
+      - "apigateway"
+
+  chambre:
+    container_name: chambre
+    image: "chambrems"
+    build: .\MicroService_back-MohamedAzizLahmer
+    hostname: chambre
+    ports:
+      - "8112:8112"
+    environment:
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULT_ZONE=http://eureka:8761/eureka/
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka:8761/eureka/
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db-mysql:3306/microservicechambre?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+      - EUREKA_CLIENT_REGISTER_WITH_EUREKA=true
+      - EUREKA_INSTANCE_HOSTNAME=chambre
+    links:
+      - "eureka"
+    networks:
+      - hotel
+    depends_on:
+      - "eureka"
+      - "db-mysql"
+      - "configserver"
+      - "apigateway"
+
+  reservation:
+    container_name: reservation
+    image: "reservationms"
+    build: .\MicroService_back-SarraSahli/GestionDesReservations
+    ports:
+      - "8081:8081"
+    environment:
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULT_ZONE=http://eureka:8761/eureka/
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka:8761/eureka/
+      - SPRING_DATASOURCE_URL=jdbc:h2:file:./Database/Data/GestionReservations
+      - SPRING_DATASOURCE_USERNAME=Sarra
+      - SPRING_DATASOURCE_PASSWORD=
+      - EUREKA_CLIENT_REGISTER_WITH_EUREKA=true
+      - EUREKA_INSTANCE_HOSTNAME=reservation
+    links:
+      - "eureka"
+    networks:
+      - hotel
+    depends_on:
+      - "eureka"
+      - "db-mysql"
+      - "configserver"
+      - "apigateway"
+
+
+  hr:
+    container_name: hr
+    image: "hrms"
+    build: .\HRmicroservice
+    hostname: hr
+    ports:
+      - "8020:8020"
+    environment:
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULT_ZONE=http://eureka:8761/eureka/
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka:8761/eureka/
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db-mysql:3306/hrmicro?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+      - EUREKA_INSTANCE_HOSTNAME=hr
+      - EUREKA_CLIENT_REGISTER_WITH_EUREKA=true
+    #  - SERVER_SERVLET_CONTEXT_PATH=/HR
+    #  - SPRING_APPLICATION_NAME=HR
+    #  - SPRING_JPA_SHOW_SQL=true
+    #  - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    #  - SPRING_CONFIG_IMPORT=optional:configserver
+    #  - eureka.instance.ip-address=172.20.0.4
+    restart: on-failure
+    networks:
+      - hotel
+    links:
+      - "eureka"
+      - "configserver"
+    depends_on:
+      - "eureka"
+      - "db-mysql"
+      - "configserver"
+      - "apigateway"
+
+
+  apigateway:
+    container_name: apigateway
+    image: apigateway
+    build: .\APIGateway
+    hostname: apigateway
+    ports:
+      - "8099:8099"
+    environment:
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULT_ZONE=http://eureka:8761/eureka/
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka:8761/eureka/
+      - EUREKA_CLIENT_REGISTER_WITH_EUREKA=true
+      - spring.cloud.gateway.discovery.locator.enabled=true
+      #- eureka.instance.preferIpAddress=true
+      #- preferIpAddress=true
+      - spring.cloud.gateway.globalcors.corsConfigurations['[/**]'].allowedOrigins=http://localhost:4200
+    restart: on-failure
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8099"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      - hotel
+    links:
+      - "eureka"
+    #  - "hr"
+    #  - "reservation"
+    #  - "restaurant"
+    #  - "chambre"
+    #  - "evaluation"
+    depends_on:
+      - "eureka"
+
+  eureka:
+    container_name: eureka
+    build: .\TPEureka
+    hostname: eureka
+    ports:
+      - "8761:8761"
+    image: "eureka"
+    environment:
+      #  - EUREKA_INSTANCE_HOSTNAME="eureka"
+      #  - eureka.client.serviceUrl.defaultZone=http://eureka:8761
+      - defaultZone=http://eureka:8761/eureka
+    #  - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka:8761/eureka
+    #  - EUREKA_CLIENT_SERVICE_URL_DEFAULT_ZONE=http://eureka:8761/eureka
+    #  - EUREKA_SERVER_PORT=8761
+    #  - SPRING_APPLICATION_NAME=eureka
+    #  - SERVER_PORT=8761
+    #  - EUREKA_CLIENT_REGISTER_WITH_EUREKA=true
+    #  - EUREKA_CLIENT_FETCH_REGISTRY=true
+    restart: on-failure
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8761"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      - hotel
+
+  configserver:
+    container_name: configserver
+    image: configserver
+    build: .\ConfigServer
+    ports:
+      - "8888:8888"
+    environment:
+      - SPRING_CLOUD_CONFIG_SERVER_GIT_URI=https://github.com/Telgou/microservices-config-repo
+      - SPRING_CLOUD_CONFIG_SERVER_GIT_USERNAME=Telgou
+      - SPRING_CLOUD_CONFIG_SERVER_GIT_PASSWORD=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
+      - SPRING_APPLICATION_NAME=configserver
+      - SERVER_PORT=8888
+      - SPRING_CLOUD_CONFIG_SERVER_GIT_SKIP_SSL_VALIDATION=true
+      - SPRING_CLOUD_CONFIG_SERVER_GIT_CLONE_ON_START=true
+      - MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE=*
+    restart: on-failure
+    networks:
+      - hotel
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8888"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  db-mysql:
+    image: "mysql:5.6"
+    container_name: db-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=hrmicro
+    ports:
+      - "3306:3306"
+    restart: unless-stopped
+    networks:
+      - hotel
+
+networks:
+  hotel:
+    driver: bridge

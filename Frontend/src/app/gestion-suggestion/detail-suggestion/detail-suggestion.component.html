@@ -1,0 +1,27 @@
+<div class="container mt-4">
+  <div *ngIf="suggestion" class="card">
+    <div class="card-body">
+      <h5 class="card-title text-center">Informations de la suggestion</h5>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="card-text"><strong>ID de la suggestion:</strong> {{ suggestion.idSuggestion }}</p>
+        </div>
+        <div class="col-md-6">
+          <p class="card-text"><strong>Numéro de suggestion:</strong> {{ suggestion.dateSuggestion  }}</p>
+        </div>
+        <div class="col-md-6">
+          <p class="card-text"><strong>type suggestion:</strong> {{ suggestion.descriptionSuggestion }}</p>
+        </div>
+        <div class="col-md-6">
+          <p class="card-text"><strong>type suggestion:</strong> {{ suggestion.statusSuggestion }}</p>
+        </div>
+        <div class="col-md-6">
+          <p class="card-text"><strong>type suggestion:</strong> {{ suggestion.Responsable }}</p>
+        </div>
+      </div>
+   
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,27 @@
+
+<div class="container">
+  <h2>Ajouter une formation</h2>
+  <form [formGroup]="addFormationForm" (ngSubmit)="addFormation()">
+    <div class="form-group">
+      <label for="titre">Titre :</label>
+      <input type="text" id="titre" class="form-control" formControlName="titre" required>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description :</label>
+      <textarea id="description" class="form-control" formControlName="description" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="formateur">Formateur :</label>
+      <input type="text" id="formateur" class="form-control" formControlName="formateur" required>
+    </div>
+
+    <div class="form-group">
+      <label for="participant">Participant :</label>
+      <input type="text" id="participant" class="form-control" formControlName="participant" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Ajouter la formation</button>
+  </form>
+</div>

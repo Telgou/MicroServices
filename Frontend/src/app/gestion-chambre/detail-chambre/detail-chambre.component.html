@@ -1,0 +1,24 @@
+<div class="container mt-4">
+  <div *ngIf="chambre" class="card">
+    <div class="card-body">
+      <h5 class="card-title text-center">Informations de la Chambre</h5>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="card-text"><strong>ID de la Chambre:</strong> {{ chambre.idChambre }}</p>
+        </div>
+        <div class="col-md-6">
+          <p class="card-text"><strong>Numéro de Chambre:</strong> {{ chambre.numChambre }}</p>
+        </div>
+        <div class="col-md-6">
+          <p class="card-text"><strong>type chambre:</strong> {{ chambre.typeC }}</p>
+        </div>
+        <div class="col-md-6">
+          <p class="card-text"><strong>Etage:</strong> {{ chambre.etage }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button (click)="goback()" class="btn btn-danger btn-sm action-button">Retour</button>
+</div>
+
+

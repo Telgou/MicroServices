@@ -1,0 +1,45 @@
+<!-- Restaurant Form -->
+<form [formGroup]="addRestaurantForm" (ngSubmit)="onSubmit()">
+    <!-- Restaurant Name -->
+    <div class="mb-3">
+      <label for="restaurantName" class="form-label">
+        <i class="bi bi-person" style="font-size: 20px; color: #8D19AA; margin-right: 8px;"></i>
+        Restaurant Name:
+      </label>
+      <input type="text" id="restaurantName" formControlName="nomR" class="form-control">
+      <div *ngIf="formSubmitted && addRestaurantForm.get('nomR')?.hasError('required')" class="text-danger">
+        The "Restaurant Name" field is required.
+      </div>
+    </div>
+  
+    <!-- Number of Seats -->
+    <div class="mb-3">
+      <label for="numSeats" class="form-label">
+        <i class="bi bi-person" style="font-size: 20px; color: #8D19AA; margin-right: 8px;"></i>
+        Number of Seats:
+      </label>
+      <input type="number" id="numSeats" formControlName="nbPlacesR" class="form-control">
+      <div *ngIf="formSubmitted && addRestaurantForm.get('nbPlacesR')?.hasError('required')" class="text-danger">
+        The "Number of Seats" field is required.
+      </div>
+    </div>
+  
+    <!-- Restaurant Address -->
+    <div class="mb-3">
+      <label for="restaurantAddress" class="form-label">
+        <i class="bi bi-geo-alt" style="font-size: 20px; color: #8D19AA; margin-right: 8px;"></i>
+        Restaurant Address:
+      </label>
+      <input type="text" id="restaurantAddress" formControlName="adresseR" class="form-control">
+      <div *ngIf="formSubmitted && addRestaurantForm.get('adresseR')?.hasError('required')" class="text-danger">
+        The "Restaurant Address" field is required.
+      </div>
+    </div>
+  
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary">
+      <i class="bi bi-plus" style="font-size: 20px; color: #fff; margin-right: 8px;"></i>
+      Add Restaurant
+    </button>
+  </form>
+  
